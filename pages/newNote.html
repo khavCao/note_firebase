@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note App</title>
+    <link rel="stylesheet" href="../dist/styles.css">
+    <script defer src="../node_modules/alpinejs/dist/cdn.min.js"></script>
+    <link rel="icon" href="assets/favicon.ico">
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+    <!-- navbar -->
+    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4" x-data="{ open: false }">
+            <a href="note.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="../assits/image-removebg-preview.png" class="h-10" alt="Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">StartNote</span>
+            </a>
+            <button @click="open = !open" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div class="hidden md:block md:w-auto">
+                <ul class="font-medium flex flex-row space-x-8 rtl:space-x-reverse">
+                    <li><a href="note.html" class="">Note</a></li>
+                    <li><a href="folder.html">Folder</a></li>
+                    <li><a href="#" class="hover:text-red-500">Logout</a></li>
+                </ul>
+            </div>
+            <!-- Mobile Menu -->
+            <div x-show="open" class="w-full md:hidden" @click.away="open = false">
+                <ul
+                    class="font-medium flex flex-col space-y-4 mt-4 bg-gray-50 p-4 rounded-lg border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+                    <li><a href="note.html" class="block py-2 px-3">Note</a></li>
+                    <li><a href="folder.html" class="block py-2 px-3">Folder</a></li>
+                    <li><a href="#" class="block py-2 px-3 hover:text-red-500">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- new note -->
+    <div class="bg-gray-100 mt-8 flex items-center justify-center">
+        <div class="bg-white shadow-md rounded-lg p-8 w-full max-w-4xl">
+            <form id="note-form" class="space-y-4">
+                <div class="flex justify-between mx-3 items-center">
+                    <a href="note.html">Back</a>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none">Save</button>
+                </div>
+                <!-- Title Input -->
+                <div>
+                    <input 
+                        type="text" 
+                        id="title" 
+                        name="title" 
+                        placeholder="Title"
+                        class="w-full mt-1 px-3 py-2 rounded-lg  focus:outline-none">
+                </div>
+    
+                <!-- Session Date Input -->
+                <div>
+                    <label for="session-date" class="block text-sm font-medium text-gray-600 mx-3">12 November 2024 11:33 | count description</label>
+                </div>
+    
+                <!-- Description Input -->
+                <div>
+                    <textarea 
+                        id="description" 
+                        name="description" 
+                        rows="21" 
+                        class="w-full mt-1 px-3 py-2 rounded-lg  focus:outline-none"></textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

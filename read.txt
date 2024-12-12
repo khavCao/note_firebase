@@ -1,0 +1,3 @@
+# run: npx tailwindcss -i ./styles.css -o ./dist/styles.css --watch
+when custom new styles
+
